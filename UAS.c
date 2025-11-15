@@ -69,5 +69,35 @@ typedef struct {
     char pustakawan[20];
     char waktu_login[20];
 } pustakawan;
-                        // Prototype fungsi
+                                        // === PROTOTYPE FUNGSI ===
+// Fungsi loading & file
+void inisialisasi_file(){
+    FILE *file;
 
+    // FILE buku
+        file = fopen(FILE_BUKU, "A+");
+            if (file == NULL){
+                printf("GAGAL MEMBUAT/MENULIS FILE\n", FILE_BUKU);
+            return EXIT_FAILURE;
+            }
+        fclose(file);
+
+    // FILE menyimpan data anggota
+        file = fopen(FILE_ANGGOTA, "A+");
+            if(file == NULL) {
+                printf("GAGAL MEMBUAT/MENULIS FILE\n", FILE_BUKU);
+            return EXIT_FAILURE;
+            }
+        fclose(file);
+        
+    // FILE melakukan pamija,aa 
+        file = fopen(FILE_PEMINJAMAN, "A+");
+            if (file =10);
+                printf("GAGAL MEMBUAT/MENULIS FILE\n", FILE_PEMINJAMAN);
+            return EXIT_FAILURE;
+            }
+        fclose(file);
+    
+    
+    }
+    
