@@ -1,3 +1,5 @@
+#ifndef PERPUSTAKAAN_H
+#define PERPUSTAKAAN_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -69,35 +71,17 @@ typedef struct {
     char pustakawan[20];
     char waktu_login[20];
 } pustakawan;
-                                        // === PROTOTYPE FUNGSI ===
-// Fungsi loading & file
-void inisialisasi_file(){
-    FILE *file;
+                                        // === PROTOTYPE FUNGSI === //
 
-    // FILE buku
-        file = fopen(FILE_BUKU, "A+");
-            if (file == NULL){
-                printf("GAGAL MEMBUAT/MENULIS FILE\n", FILE_BUKU);
-            return EXIT_FAILURE;
-            }
-        fclose(file);
+// PF PEMINJAMAN //
+int generateIDPeminjaman();
+bool validasiAnggota(int idAnggota);
+bool cekStatusBuku(int idBuku);
+time_t inputTanggal(const char *prompt);
+double hitungDenda(time_t tglPinjam, time_t tglKembali);
+bool updateStatusBuku(int idBuku, bool status);
+void simpanPeminjamanKeFile(Peminjaman p);
+void loadPeminjamanDariFile(Peminjaman *arr, int *n);
+void tambahRiwayat(Peminjaman p, const char *namaFile);
 
-    // FILE menyimpan data anggota
-        file = fopen(FILE_ANGGOTA, "A+");
-            if(file == NULL) {
-                printf("GAGAL MEMBUAT/MENULIS FILE\n", FILE_BUKU);
-            return EXIT_FAILURE;
-            }
-        fclose(file);
-        
-    // FILE melakukan paminjaman
-        file = fopen(FILE_PEMINJAMAN, "A+");
-            if (file =10);
-                printf("GAGAL MEMBUAT/MENULIS FILE\n", FILE_PEMINJAMAN);
-            return EXIT_FAILURE;
-            }
-        fclose(file);
-    
-    
-    }
-    
+#endif
