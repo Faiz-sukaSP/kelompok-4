@@ -1,0 +1,12 @@
+# Format: ID_PUSTAKAWAN;NAMA_LENGKAP;USERNAME;PASSWORD;WAKTU_LOGIN
+# ID_PUSTAKAWAN : angka unik untuk tiap pustakawan
+# NAMA_LENGKAP   : nama lengkap pustakawan
+# USERNAME       : username untuk login (tanpa spasi)
+# PASSWORD       : password login
+# WAKTU_LOGIN    : jam:menit terakhir login (hh:mm)
+
+2560;Nur Asysyifa;nurasysyifa;syifa01;09:12
+2561;Fatin Fadel;fatinfadel;fatin02;14:27
+2562;Faiz Asra;faizasra;faiz03;07:45
+2563;Alief Aqsha;aliefaqsha;alief04;11:33
+2564;Khoirotun Hisan;khoirotunhisan;hisan05;16:08
