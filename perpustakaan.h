@@ -77,12 +77,12 @@ typedef struct {
 
 // PF PEMINJAMAN //
 int generateIDPeminjaman();
-bool validasiAnggota(const char *npm);
 int parseDate(const char *tgl);
-bool cekStatusBuku(const char *idBuku);
-void tanggalHariIni(char *buffer);
 double hitungDenda(const char *tglPinjam, const char *tglKembali);
+bool validasiAnggota(const char *npm);
+bool cekStatusBuku(const char *idBuku);
 bool updateStatusBuku(const char *idBuku, const char *statusBaru);
+void tanggalHariIni(char *buffer);
 void simpanPeminjamanKeFile(Peminjaman p);
 void loadPeminjamanDariFile(Peminjaman *arr, int *n);
 void tambahRiwayat(Peminjaman p, const char *namaFile);
