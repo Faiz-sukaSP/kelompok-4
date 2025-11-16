@@ -43,7 +43,7 @@ int loginPustakawan() {
         if (strcmp(adminList[i].username, user) == 0 &&
             strcmp(adminList[i].password, pass) == 0) 
         {
-            printf("Login berhasil! Selamat datang, %s.\n", user); //jika lohin berhasil
+            printf("Login berhasil! Selamat datang, %s.\n", adminList[i].pustakawan); //jika login berhasil
             return 1; 
         }
     }
@@ -61,3 +61,4 @@ int cekUsername(char user[]) {
     }
     return 0; // username belum terdaftar
 }
+
