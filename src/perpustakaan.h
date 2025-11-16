@@ -1,10 +1,12 @@
 #ifndef PERPUSTAKAAN_H
 #define PERPUSTAKAAN_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+#include <stdbool.h>  // Tambahkan ini untuk tipe bool
 
 // Konstanta 
 #define MAX_BUKU 100
@@ -21,34 +23,26 @@
 #define FILE_PEMINJAMAN "Peminjaman.txt"
 #define FILE_PUSTAKAWAN "Pustakawan.txt"
 #define FILE_PENGATURAN "Pengaturan.txt"
-                                        // === ENUM ===
+
+// === ENUM ===
 // Enum untuk kategori buku
-typedef enum{
+typedef enum {
     FIKSI = 1,
     NON_FIKSI,
     KOMIK,
     MAJALAH,
-    REFRENSI
+    REFERENSI  // ✅ Diperbaiki dari REFRENSI
 } Kategori;
 
-// Enum utuk mengetahui ketersediaan buku
-typedef enum{
+// Enum untuk mengetahui ketersediaan buku
+typedef enum {
     TERSEDIA = 1,
     DIPINJAM
 } Status;
 
-// Kategori Buku
-typedef enum { 
-    FIKSI, NON_FIKSI, KOMIK, MAJALAH, REFERENSI 
-} Kategori;
-
-// Status Buku
-typedef enum { 
-    TERSEDIA, DIPINJAM 
-} Status;
-                                        //=== STRUCK ===
-// Struck untuk data buku
-typedef struct{
+// === STRUCT ===
+// Struct untuk data buku
+typedef struct {
     char id_buku[20];
     char judul_buku[100];
     char penulis[80];
@@ -57,6 +51,7 @@ typedef struct{
     int jumlah_dipinjam;
 } Buku;
 
+// Struct untuk peminjaman
 typedef struct {
     char id_peminjaman[30];
     char id_buku[20];
@@ -67,7 +62,7 @@ typedef struct {
     int denda;
 } Peminjaman;
 
-// Struck untuk anggota
+// Struct untuk anggota
 typedef struct {
     char npm_user[20];
     char nama_user[50];
@@ -76,19 +71,31 @@ typedef struct {
     int pinjaman_aktif;
 } Anggota;
 
+// Struct untuk pustakawan
 typedef struct {
     char id_pustakawan[20];
     char pustakawan[20];
     char waktu_login[20];
     char username[20];
     char password[20];
-} pustakawan;
-                                        // === PROTOTYPE FUNGSI === //
+} Pustakawan;  // ✅ Huruf kapital untuk konsistensi
 
-// === PF PEMINJAMAN === //
+// === VARIABEL GLOBAL ===
+extern Buku daftar_buku[MAX_BUKU];
+extern int jumlah_buku;
+
+extern Anggota daftar_anggota[MAX_ANGGOTA];
+extern int jumlah_anggota;
+
+extern Peminjaman daftar_peminjaman[MAX_PEMINJAMAN];
+extern int jumlah_peminjaman;
+
+// === PROTOTYPE FUNGSI === 
+
+// PF PEMINJAMAN
 int generateIDPeminjaman();
-int uraiTanggal(const char *tgl)
-double hitungDenda(const char *tglPinjam, const char *tglKembali);
+int uraiTanggal(const char *tgl);  // ✅ Tambahkan semicolon
+double hitungDenda(const char *tglPinjam, const char *tglKembali);  // ✅ Tambahkan semicolon
 bool validasiAnggota(const char *npm);
 bool cekStatusBuku(const char *idBuku);
 bool updateStatusBuku(const char *idBuku, const char *statusBaru);
@@ -101,7 +108,7 @@ void kembalikanBuku();
 void tampilkanDaftarPeminjaman();
 void cariPeminjamanByNPM();
 
-// === PF BUKU === //
+// === PF BUKU ===
 void muatDataBuku(Buku *data, int *jumlah);
 void simpanDataBuku(Buku *data, int jumlah);
 void tampilkanDaftarBuku();
@@ -115,21 +122,5 @@ void cariBukuByKategori(Kategori kategori);
 int cariIndexBuku(const char *id_buku);
 void urutkanBukuBerdasarkanPeminjaman(Buku *data, int jumlah);
 void tampilkanRankingBuku();
-
-// === PF UTILITY ===//
-void clear_input_buffer(void);
-void pause_screen(void);
-const char* kategori_string(Kategori k);
-const char* status_string(Status s);
-
-// Tanggal
-void get_tanggal_sekarang(char* buffer);
-void tambah_hari(const char* tanggal, int hari, char* hasil);
-int hitung_selisih_hari(const char* day1, const char* day2);
-
-// Pencarian data
-int cari_index_buku(const char* id);
-int cari_index_anggota(const char* id);
-int hitung_pinjaman_aktif(const char* id_anggota);
 
 #endif

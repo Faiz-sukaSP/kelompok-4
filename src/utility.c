@@ -11,9 +11,9 @@ void clear_input_buffer(void) {
 
 void pause_screen(void) {
     printf("\nTekan Enter untuk melanjutkan...");
-    clear_input_buffer();
     getchar();
 }
+
 const char* kategori_string(Kategori k) {
     switch(k) {
         case FIKSI: return "Fiksi";
@@ -72,29 +72,30 @@ int hitung_selisih_hari(const char* tanggal1, const char* tanggal2) {
     return (int)(diff / 86400);
 }
 
-int cari_index_buku(const char* id) {
+
+int cari_index_buku(const char* id_buku) {
     for (int i = 0; i < jumlah_buku; i++) {
-        if (strcmp(daftar_buku[i].id, id) == 0) {
+        if (strcmp(daftar_buku[i].id_buku, id_buku) == 0) {
             return i;
         }
     }
     return -1;
 }
 
-int cari_index_anggota(const char* id) {
+int cari_index_anggota(const char* npm_user) {
     for (int i = 0; i < jumlah_anggota; i++) {
-        if (strcmp(daftar_anggota[i].id, id) == 0) {
+        if (strcmp(daftar_anggota[i].npm_user, npm_user) == 0) {
             return i;
         }
     }
     return -1;
 }
 
-int hitung_pinjaman_aktif(const char* id_anggota) {
+int hitung_pinjaman_aktif(const char* npm_user) {
     int count = 0;
     for (int i = 0; i < jumlah_peminjaman; i++) {
-        if (strcmp(daftar_peminjaman[i].id_anggota, id_anggota) == 0 &&
-            daftar_peminjaman[i].status_kembali == 0) {
+        if (strcmp(daftar_peminjaman[i].npm_user, npm_user) == 0 &&
+            daftar_peminjaman[i].status_pengembalian == 0) {
             count++;
         }
     }

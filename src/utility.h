@@ -2,6 +2,7 @@
 #define UTILITY_H
 
 #include "perpustakaan.h"
+#include "perpustakaan.h"  // Include perpustakaan.h, jangan definisi ulang
 
 // Deklarasi fungsi utility
 void clear_input_buffer(void);
@@ -14,5 +15,8 @@ int hitung_selisih_hari(const char* tanggal1, const char* tanggal2);
 int cari_index_buku(const char* id_buku);
 int cari_index_anggota(const char* npm_user);
 int hitung_pinjaman_aktif(const char* npm_user);
+int cari_index_buku(const char* id);
+int cari_index_anggota(const char* id);
+int hitung_pinjaman_aktif(const char* id_anggota);
 
 #endif
