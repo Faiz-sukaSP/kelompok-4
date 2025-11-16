@@ -70,6 +70,8 @@ typedef struct {
     char id_pustakawan[20];
     char pustakawan[20];
     char waktu_login[20];
+    char username[20];
+    char password[20];
 } pustakawan;
                                         // === PROTOTYPE FUNGSI === //
 
