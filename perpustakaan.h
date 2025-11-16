@@ -77,7 +77,7 @@ typedef struct {
 
 // PF PEMINJAMAN //
 int generateIDPeminjaman();
-int parseDate(const char *tgl);
+int uraiTanggal(const char *tgl)
 double hitungDenda(const char *tglPinjam, const char *tglKembali);
 bool validasiAnggota(const char *npm);
 bool cekStatusBuku(const char *idBuku);
