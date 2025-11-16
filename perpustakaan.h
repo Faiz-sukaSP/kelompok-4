@@ -91,4 +91,19 @@ void kembalikanBuku();
 void tampilkanDaftarPeminjaman();
 void cariPeminjamanByNPM();
 
+// === PF BUKU === //
+void muatDataBuku(Buku *data, int *jumlah);
+void simpanDataBuku(Buku *data, int jumlah);
+void tampilkanDaftarBuku();
+void tambahBuku();
+void hapusBuku();
+void editBuku();
+void cariBuku();
+void cariBukuByJudul(const char *judul);
+void cariBukuByPenulis(const char *penulis);
+void cariBukuByKategori(Kategori kategori);
+int cariIndexBuku(const char *id_buku);
+void urutkanBukuBerdasarkanPeminjaman(Buku *data, int jumlah);
+void tampilkanRankingBuku();
+
 #endif
