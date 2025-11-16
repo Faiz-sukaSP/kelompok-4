@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-
 #include "utility.h"
 
 void clear_input_buffer(void) {
@@ -71,7 +67,6 @@ int hitung_selisih_hari(const char* tanggal1, const char* tanggal2) {
     double diff = difftime(time2, time1);
     return (int)(diff / 86400);
 }
-
 
 int cari_index_buku(const char* id_buku) {
     for (int i = 0; i < jumlah_buku; i++) {

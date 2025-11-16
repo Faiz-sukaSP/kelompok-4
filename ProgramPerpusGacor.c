@@ -1,15 +1,3 @@
-/* Perpus.c
-   Sistem Perpustakaan Mini (Admin & Anggota)
-   - Auto-generate Book ID (B001...)
-   - Registrasi anggota (ID|username|password)
-   - Admin: tambah/edit/hapus buku
-   - Anggota: lihat/cari/pinjam/kembalikan/riwayat
-   - Batas pinjam per anggota (MAX_BORROW)
-   - Denda otomatis (DENDA_PER_HARI setelah MAX_DAYS)
-   - peminjaman.txt menyimpan active loans: idPin|idBuku|idAng|tgl|bln|thn
-   - history.txt menyimpan returns: idPin|idBuku|idAng|tglPin|blnPin|thnPin|tglRet|blnRet|thnRet|denda
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
